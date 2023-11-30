@@ -1,0 +1,109 @@
+/* *,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+
+.searchform {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  background: #f4f4f4;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.37);
+  border-radius: 10px;
+  display: flex;
+}
+
+.searchform input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.searchform button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  background: rgb(52, 173, 236);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .searchform {
+    max-width: 80%;
+    margin: 20px auto;
+  }
+} */
+
+
+
+/* Global box-sizing reset */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+/* Clearfix for form container */
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Search Form */
+.searchform {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  background: #f4f4f4;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.37);
+  border-radius: 10px;
+}
+
+.searchform input[type="text"] {
+  width: calc(100% - 90px);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  float: left;
+}
+
+.searchform button {
+  width: 80px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  background: rgb(52, 173, 236);
+  cursor: pointer;
+  float: right;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .searchform input[type="text"],
+  .searchform button {
+    width: 100%;
+    float: none;
+    margin-bottom: 10px;
+  }
+}
