@@ -1,0 +1,68 @@
+/* Common styles */
+.main-container {
+    display: block;
+    justify-content: space-between; /* Reversing the order on smaller screens */
+  }
+  
+  .scrollable-container {
+    flex: 1 0 100%; /* Taking full width initially */
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 6px;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .song-details p {
+    margin: 0;
+  }
+  
+  
+  /* Responsive styles */
+  @media screen and (min-width: 500px) {
+    .main-container {
+      flex-direction: row;
+    }
+  
+    .scrollable-container {
+      flex: 0 0 calc(50% - 20px); /* Half width minus margins */
+      max-height: 400px;
+      margin-right: 20px; /* Adding space between the containers */
+    }
+  
+    .side-container {
+      flex: 0 0 calc(50% - 20px); /* Half width minus margins */
+      margin-top: 0; /* Resetting margin-top */
+    }
+  }
+  
+
+  .sticky-audio-player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+  }
+
+  #audioPlayer{
+    width: 90%;
+  }
