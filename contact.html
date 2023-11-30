@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link rel="stylesheet" href="assets/css/navbar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+        <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+
+<body>
+    <nav class="bg-blue-900">
+        <div class="max-w-7xl mx-auto px-4" style="height: 4rem;">
+            <div class="flex items-center justify-between " style="height: inherit;">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-white font-semibold text-lg">Music</a>
+                </div>
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-toggle" class="text-white hover:text-gray-200 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <div id="menu-items" class="hidden md:flex justify-center flex-grow">
+                    <a href="index.html" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-home mr-1"></i>
+                        Home
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        About
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-cogs mr-1"></i>
+                        Services
+                    </a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-envelope mr-1"></i>
+                        Contact
+                    </a>
+                </div>
+                <!-- Login Button -->
+                <div class="md:flex-shrink-0 hidden md:block">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                        <a href="#" onclick="topRightSmallToast(`Not Implemented Yet`,`error`)">
+                            <i class="fas fa-sign-in-alt mr-1"></i>
+                            Login
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <!-- Responsive Dropdown Menu -->
+            <div id="responsive-menu" class="md:hidden hidden bg-blue-900">
+                <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-home mr-1"></i>
+                    Home
+                </a>
+                <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    About
+                </a>
+                <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-cogs mr-1"></i>
+                    Services
+                </a>
+                <a href="contact.html" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-envelope mr-1"></i>
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="contact-form-container">
+        <form class="contact-form" id="contactForm">
+            <h1>Contact Us</h1>
+            <p>
+                If you have any questions, suggestions, or would like to discuss collaboration opportunities, please don't hesitate to get in touch with us. We appreciate your feedback and are always excited to hear from our audience. Fill out the form below or send us an email at <a href="mailto:chintamanipala67@gmail.com">chintamanipala67@gmail.com</a>. We aim to respond within 24-48 hours.
+            </p>
+            <div class="input-group">
+                <label for="name">
+                    <i class="far fa-user"></i>
+                </label>
+                <input type="text" id="name" placeholder="Enter your name" required />
+            </div>
+            <div class="input-group">
+                <label for="email">
+                    <i class="far fa-envelope"></i>
+                </label>
+                <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+            <div class="input-group">
+                <label for="birthday">
+                    <i class="far fa-calendar"></i>
+                </label>
+                <input type="date" id="birthday" placeholder="Enter your birthday (or not)" required />
+                <label for="category">
+                    <i class="fas fa-list"></i>
+                </label>
+                <select id="category" placeholder="Choose one" required>
+                    <option>Bug Report</option>
+                    <option>Feature Request</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <textarea placeholder="Tell us what's wrong" required></textarea>
+            <div class="checkbox-group">
+                <input id="copy" type="checkbox" />
+                <label for="copy">Send me a copy.</label>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/sweetalert.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/security.js"></script>
+</body>
+
+</html>

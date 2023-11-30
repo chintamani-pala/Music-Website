@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/searchbar.css">
+    <link rel="stylesheet" href="assets/css/aside.css">
+    <link rel="stylesheet" href="assets/css/dataTable.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+
+</head>
+
+<body>
+    <nav class="bg-blue-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-white font-semibold text-lg">Music</a>
+                </div>
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-toggle" class="text-white hover:text-gray-200 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <div id="menu-items" class="hidden md:flex justify-center flex-grow">
+                    <a href="#" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-home mr-1"></i>
+                        Home
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        About
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-cogs mr-1"></i>
+                        Services
+                    </a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white px-4">
+                        <i class="fas fa-envelope mr-1"></i>
+                        Contact
+                    </a>
+                </div>
+                <!-- Login Button -->
+                <div class="md:flex-shrink-0 hidden md:block">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                        <a href="#" onclick="topRightSmallToast(`Not Implemented Yet`,`error`)">
+                            <i class="fas fa-sign-in-alt mr-1"></i>
+                            Login
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <!-- Responsive Dropdown Menu -->
+            <div id="responsive-menu" class="md:hidden hidden bg-blue-900">
+                <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-home mr-1"></i>
+                    Home
+                </a>
+                <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    About
+                </a>
+                <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-cogs mr-1"></i>
+                    Services
+                </a>
+                <a href="contact.html" class="block py-2 px-4 text-gray-300 hover:text-white">
+                    <i class="fas fa-envelope mr-1"></i>
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+    <form class="searchform cf" id="searchForm">
+        <input type="text" id="inputField" placeholder="Search Your Song Here">
+        <button type="submit" id="searchBtn">Loading...</button>
+    </form>
+    <div class="main-container">
+        <div class="scrollable-container">
+            <table id="musicTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Music Name</th>
+                        <th>Duration</th>
+                        <th>Singer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Music data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <!-- End of items -->
+    </div>
+    </div>
+    <div class="sticky-audio-player">
+        <audio id="audioPlayer" controls>
+            <source src="song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/sweetalert.js"></script>
+    <script src="assets/js/loadMusic.js"></script>
+    <script src="assets/js/security.js"></script>
+</body>
+
+</html>
