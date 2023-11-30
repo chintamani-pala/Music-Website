@@ -6,7 +6,7 @@
   
   .scrollable-container {
     flex: 1 0 100%; /* Taking full width initially */
-    max-height: 400px;
+    max-height: 600px;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
