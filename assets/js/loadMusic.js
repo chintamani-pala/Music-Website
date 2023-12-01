@@ -5,18 +5,19 @@ $(document).ready(async function () {
     let searchBtn = document.getElementById("searchBtn")
     let inputField = document.getElementById("inputField")
     searchBtn.addEventListener("click", async () => {
-        searchBtn.disabled=true;
+        searchBtn.disabled = true;
         let inputFieldValue = inputField.value;
-        inputFieldValue=inputFieldValue.trim();
-        if(inputFieldValue==""){
-            topRightSmallToast(`Enter a valid song name`,`error`);
-            return;
+        inputFieldValue = inputFieldValue.trim();
+        if (inputFieldValue == "") {
+            topRightSmallToast(`Enter a valid song name`, `error`);
+        } else {
+            inputFieldValue = inputFieldValue.replace(" ", "+")
+            inputFieldValue = inputFieldValue.toLowerCase()
+            await fetchAndDisplay(inputFieldValue)
+            searchBtn.innerHTML = "Search"
+            searchBtn.disabled = false;
         }
-        inputFieldValue = inputFieldValue.replace(" ", "+")
-        inputFieldValue=inputFieldValue.toLowerCase()
-        await fetchAndDisplay(inputFieldValue)
-        searchBtn.innerHTML="Search"
-        searchBtn.disabled=false;
+
     })
     const loadMusicToTable = (musicData) => {
         const formattedData = musicData.map(item => [
@@ -25,7 +26,7 @@ $(document).ready(async function () {
             formatDuration(item.duration),
             getArtistNames(item.artistMap)
         ]);
-        
+
         // Function to format duration (convert seconds to MM:SS format)
         function formatDuration(durationInSeconds) {
             const minutes = Math.floor(durationInSeconds / 60);
@@ -44,14 +45,14 @@ $(document).ready(async function () {
         const columns = [
             {
                 title: "Image",
-                render: function (data,title) {
+                render: function (data, title) {
                     return '<img src="' + data + '" alt="Song Logo" width="100">';
                 }
             },
             { title: "Title" },
             { title: "Duration" },
             { title: "Artists" },
-            
+
         ];
         const dataTable = $('#musicTable').DataTable({
             data: formattedData,
@@ -66,16 +67,16 @@ $(document).ready(async function () {
             if (rowData) {
                 const dataIndex = dataTable.row(this).index();
                 const fullData = musicData[dataIndex];
-                let audioPlayer=document.getElementById("audioPlayer");
-               
-                audioPlayer.src=fullData.media_url;
+                let audioPlayer = document.getElementById("audioPlayer");
+
+                audioPlayer.src = fullData.media_url;
                 audioPlayer.play()
             }
         });
-        searchBtn.innerHTML="Search"
+        searchBtn.innerHTML = "Search"
     }
     const fetchData = async (query) => {
-        searchBtn.innerHTML="Loading..."
+        searchBtn.innerHTML = "Loading..."
         try {
             const response = await fetch(`https://jio-saavn-api-chintamanipala.vercel.app/song/?query=${query}`);
             if (!response.ok) {
@@ -90,13 +91,13 @@ $(document).ready(async function () {
 
     const fetchAndDisplay = async (query) => {
         const value = localStorage.getItem(query);
-        
-        if(value!=null){
+
+        if (value != null) {
             loadMusicToTable(JSON.parse(value))
             return;
         }
         const musicData = await fetchData(query)
-        if(query!="Top+Songs"){
+        if (query != "Top+Songs") {
             localStorage.setItem(query, JSON.stringify(musicData));
         }
         loadMusicToTable(musicData)
