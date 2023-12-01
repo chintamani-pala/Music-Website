@@ -8,7 +8,7 @@ This is a simple music website where users can explore, search for, and listen t
 
 - **Search:** Users can search for music tracks by name, artist, or genre.
 - **Music Player:** Play, pause, and control music tracks directly on the website.
-- **Lyrics:** View the lyrics of the songs.
+- **Lyrics:** View the lyrics of the songs.(upcoming)
 - **Responsive Design:** Works seamlessly on various devices - desktop, tablet, and mobile.
 
 ## Technologies Used
