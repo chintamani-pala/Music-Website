@@ -98,6 +98,11 @@ $(document).ready(async function () {
             return;
         }
         const musicData = await fetchData(query)
+        if(musicData==null){
+            topRightSmallToast(`Some error Occured contact admin`, `error`);
+            searchBtn.disabled = false;
+            searchBtn.innerHTML = "Search"
+        }
         if (query != "Top+Songs") {
             localStorage.setItem(query, JSON.stringify(musicData));
         }
