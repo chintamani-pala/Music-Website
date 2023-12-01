@@ -8,6 +8,10 @@ $(document).ready(async function () {
         searchBtn.disabled=true;
         let inputFieldValue = inputField.value;
         inputFieldValue=inputFieldValue.trim();
+        if(inputFieldValue==""){
+            topRightSmallToast(`Enter a valid song name`,`error`);
+            return;
+        }
         inputFieldValue = inputFieldValue.replace(" ", "+")
         inputFieldValue=inputFieldValue.toLowerCase()
         await fetchAndDisplay(inputFieldValue)
@@ -103,4 +107,3 @@ $(document).ready(async function () {
 
 
 });
-
