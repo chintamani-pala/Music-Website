@@ -10,6 +10,7 @@ $(document).ready(async function () {
         inputFieldValue = inputFieldValue.trim();
         if (inputFieldValue == "") {
             topRightSmallToast(`Enter a valid song name`, `error`);
+            searchBtn.disabled = false;
         } else {
             inputFieldValue = inputFieldValue.replace(" ", "+")
             inputFieldValue = inputFieldValue.toLowerCase()
