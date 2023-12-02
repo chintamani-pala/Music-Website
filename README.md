@@ -29,11 +29,9 @@ This is a simple music website where users can explore, search for, and listen t
 If you'd like to contribute to this project, feel free to fork the repository and submit pull requests.
 
 ## Credits
-
 - DataTables - [DataTables](https://datatables.net/)
 - Tailwind CSS - [Tailwind CSS](https://tailwindcss.com/)
 - jQuery - [jQuery](https://jquery.com/)
 
 ## License
-
 This project is licensed under the [MIT License](LICENSE).
