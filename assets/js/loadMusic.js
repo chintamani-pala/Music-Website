@@ -131,7 +131,6 @@ $(document).ready(async function () {
             fetchAndDisplay("Top+Songs");
         }else{
             let key=data.key
-            console.log(data)
             key=key.replace("+"," ");
             inputField.value=key;
             loadMusicToTable(JSON.parse(data.value));
