@@ -1,4 +1,4 @@
-/*
+
 $(document).ready(async function () {
     document.getElementById('searchForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
@@ -142,10 +142,10 @@ $(document).ready(async function () {
 
 
 });
-*/
 
 
 
+/*
 $(document).ready(async function () {
     let searchBtn = document.getElementById("searchBtn");
     let inputField = document.getElementById("inputField");
@@ -282,3 +282,4 @@ $(document).ready(async function () {
 
     initialLoad();
 });
+*/
