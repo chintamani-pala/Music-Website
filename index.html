@@ -12,7 +12,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
 
+        .fixed-nav {
+            position: fixed;
+            width: 100%;
+            margin-top: 0px;
+            z-index: 1000;
+        }
+    </style>
 
 </head>
 
@@ -85,7 +97,7 @@
         <button type="submit" id="searchBtn">Loading...</button>
     </form>
     <div class="main-container">
-        <div class="scrollable-container">
+        <!-- <div class="scrollable-container"> -->
             <table id="musicTable" class="display">
                 <thead>
                     <tr>
@@ -99,7 +111,7 @@
                     <!-- Music data will be populated here -->
                 </tbody>
             </table>
-        </div>
+        <!-- </div> -->
         <!-- End of items -->
     </div>
     </div>
