@@ -1,7 +1,7 @@
 function checkAndClearLocalStorage() {
     const siteVersion = localStorage.getItem('updatedVersion');
     const localStorageLength = localStorage.length;
-    const updateVersion = 4;
+    const updateVersion = 2;
     if(localStorageLength == 0){
         localStorage.setItem('updatedVersion', updateVersion);
     }
@@ -32,4 +32,12 @@ function checkAndClearLocalStorage() {
 }
 window.onload = function() {
     checkAndClearLocalStorage();
+};
+window.onscroll = function() {
+    const nav = document.querySelector('nav');
+    if (window.pageYOffset > document.body.scrollHeight*0.1) {
+        nav.classList.add('fixed-nav');
+    } else {
+        nav.classList.remove('fixed-nav');
+    }
 };
