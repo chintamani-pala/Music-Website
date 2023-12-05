@@ -1,7 +1,7 @@
 function checkAndClearLocalStorage() {
     const siteVersion = localStorage.getItem('updatedVersion');
     const localStorageLength = localStorage.length;
-    const updateVersion = 1;
+    const updateVersion = 2;
     if (localStorageLength != 0 && (siteVersion === null || parseInt(siteVersion) < updateVersion)) {
         Swal.fire({
             title: "Update",
