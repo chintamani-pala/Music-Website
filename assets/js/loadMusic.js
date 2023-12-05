@@ -286,6 +286,7 @@ $(document).ready(async function () {
 
 
 
+
 $(document).ready(async function () {
     document.getElementById('searchForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
@@ -382,7 +383,7 @@ $(document).ready(async function () {
     };
 
     $(window).on('scroll', function() {
-        if($(window).scrollTop() + $(window).innerHeight() >= $(document).height()) {
+        if($(window).scrollTop() + $(window).innerHeight() >= $(document).height() - 100) { // Adjusted for mobile devices
             console.log("yes");
             fetchMoreData(inputFieldValue);
         }
