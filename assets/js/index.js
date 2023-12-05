@@ -4,7 +4,7 @@ function checkAndClearLocalStorage() {
     if (siteVersion === null || parseInt(siteVersion) < updateVersion) {
         Swal.fire({
             title: "Update",
-            text: "Hey New Update is Released <strong>Do You Want To Update</strong>",
+            html: `Hey New Update is Released <strong>Do You Want To Update</strong>`,
             showDenyButton: true,
             showCancelButton: false,
             confirmButtonText: "Update",
