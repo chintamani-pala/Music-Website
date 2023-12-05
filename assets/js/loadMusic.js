@@ -145,6 +145,7 @@ $(document).ready(async function () {
 */
 
 
+
 $(document).ready(async function () {
     let searchBtn = document.getElementById("searchBtn");
     let inputField = document.getElementById("inputField");
@@ -179,7 +180,7 @@ $(document).ready(async function () {
                     return '<img src="' + data + '" alt="Song Logo" width="100">';
                 }
             },
-            { title: "Title" },
+            { title: "Album" },
             { title: "Duration" },
             { title: "Artists" },
         ];
@@ -191,7 +192,7 @@ $(document).ready(async function () {
             paging: false,
             info: false,
             scrollY: 400,
-            deferRender: true, // Improve performance for large datasets
+            deferRender: true,
             scroller: {
                 loadingIndicator: true
             }
@@ -213,9 +214,8 @@ $(document).ready(async function () {
     };
 
     const fetchMoreData = async (query) => {
-        // Simulate fetching more data after a short delay (replace this with actual API call)
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const moreData = await fetchData(query); // Fetch additional data based on query or current state
+        const response = await fetch(`https://jio-saavn-api-chintamanipala.vercel.app/song/?query=${query}`);
+        const moreData = await response.json();
         dataTable.rows.add(moreData).draw();
     };
 
@@ -229,47 +229,12 @@ $(document).ready(async function () {
     });
 
     const fetchData = async (query) => {
-        searchBtn.innerHTML = "Loading...";
-        try {
-            const response = await fetch(`https://jio-saavn-api-chintamanipala.vercel.app/song/?query=${query}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok.');
-            }
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            return []; // or handle the error as needed
-        } finally {
-            searchBtn.innerHTML = "Search";
-        }
+        const response = await fetch(`https://jio-saavn-api-chintamanipala.vercel.app/song/?query=${query}`);
+        const data = await response.json();
+        return data;
     };
 
-    const getLastLocalStorageData = () => {
-        let lastKey = localStorage.getItem("lastSearch");
-        let lastValue = localStorage.getItem(lastKey);
-        if (!lastKey || !lastValue) {
-            return null;
-        }
-        return { key: lastKey, value: lastValue };
-    };
-
-    const fetchAndDisplay = async (query) => {
-        const value = localStorage.getItem(query);
-        if (value != null) {
-            loadMusicToTable(JSON.parse(value));
-            return;
-        }
-        const musicData = await fetchData(query);
-        if (musicData.length === 0) {
-            console.error('No data fetched');
-            return;
-        }
-        if (query !== "Top+Songs") {
-            localStorage.setItem(query, JSON.stringify(musicData));
-        }
-        loadMusicToTable(musicData);
-    };
+    // Rest of your functions like getLastLocalStorageData, fetchAndDisplay, initialLoad, etc.
 
     const initialLoad = async () => {
         let data = getLastLocalStorageData();
