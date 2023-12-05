@@ -167,7 +167,7 @@ $(document).ready(async function () {
         } else {
             inputFieldValue = inputFieldValue.replace(" ", "+")
             inputFieldValue = inputFieldValue.toLowerCase()
-            console.log(inputFieldValue);
+            searchBtn.innerHTML = "Loading..."
             await fetchAndDisplay(inputFieldValue)
             localStorage.setItem("lastSearch",inputFieldValue);
             searchBtn.innerHTML = "Search"
