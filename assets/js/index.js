@@ -15,8 +15,8 @@ function checkAndClearLocalStorage() {
                   var lastSearch=localStorage.getItem('lastSearch');
                 }
                 localStorage.clear();
-                localStroage.setItem('updatedVersion',updateVersion);
-                localStroage.setItem('lastSearch',lastSearch);
+                localStorage.setItem('updatedVersion',updateVersion);
+                localStorage.setItem('lastSearch',lastSearch);
                 Swal.fire("<strong>Site is Updated</strong>", "", "success");
             } else if (result.isDenied) {
                 Swal.fire("<strong>Site is not Updated</strong>", "", "warning");
