@@ -23,7 +23,6 @@ function checkAndClearLocalStorage() {
                 Swal.fire("<strong>Site is not Updated</strong>", "", "warning");
             }
         });
-        console.log('localStorage data cleared.');
     } else {
         console.log('site is updated no need to update');
     }
