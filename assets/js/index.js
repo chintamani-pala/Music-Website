@@ -17,15 +17,14 @@ function checkAndClearLocalStorage() {
                 localStorage.clear();
                 localStroage.setItem('updatedVersion',updateVersion);
                 localStroage.setItem('lastSearch',lastSearch);
-                Swal.fire("Saved!", "", "success");
+                Swal.fire("<strong>Site is Updated</strong>", "", "success");
             } else if (result.isDenied) {
-                Swal.fire("Changes are not saved", "", "info");
+                Swal.fire("<strong>Site is not Updated</strong>", "", "warning");
             }
-        });
-        
+        }); 
         console.log('localStorage data cleared.');
     } else {
-        console.log('Value in localStorage meets the threshold.');
+        console.log('site is updated no need to update');
     }
 }
 window.onload = function() {
