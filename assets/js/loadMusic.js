@@ -234,6 +234,38 @@ $(document).ready(async function () {
         return data;
     };
 
+    function getLastLocalStorageData() {
+        let keys = Object.keys(localStorage);
+        if (keys.length === 0) {
+            return null; // No data in local storage
+        }
+    
+        let lastKey=localStorage.getItem("lastSearch");
+        let lastValue=localStorage.getItem(lastKey);
+        if(lastKey==null || lastValue==null || lastKey==undefined || lastValue==undefined){
+            return null;
+        }
+        return { key: lastKey, value: lastValue };
+    }
+
+    const fetchAndDisplay = async (query) => {
+        const value = localStorage.getItem(query);
+        if (value != null) {
+            loadMusicToTable(JSON.parse(value))
+            return;
+        }
+        const musicData = await fetchData(query)
+        if(musicData==null){
+            topRightSmallToast(`Some error Occured contact admin`, `error`);
+            searchBtn.disabled = false;
+            searchBtn.innerHTML = "Search"
+            return;
+        }
+        if (query != "Top+Songs") {
+            localStorage.setItem(query, JSON.stringify(musicData));
+        }
+        loadMusicToTable(musicData)
+    }
     // Rest of your functions like getLastLocalStorageData, fetchAndDisplay, initialLoad, etc.
 
     const initialLoad = async () => {
