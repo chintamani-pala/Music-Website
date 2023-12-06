@@ -1,7 +1,7 @@
 function checkAndClearLocalStorage() {
     const siteVersion = localStorage.getItem('updatedVersion');
     const localStorageLength = localStorage.length;
-    const updateVersion = 9;
+    const updateVersion = 10;
     if(localStorageLength == 0){
         localStorage.setItem('updatedVersion', updateVersion);
     }
