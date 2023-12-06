@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-    const playSong = async (audioPlayer, mediaUrl) => {
+    /*const playSong = async (audioPlayer, mediaUrl) => {
         try {
             console.log(audioPlayer);
             console.log(mediaUrl);
@@ -15,7 +15,7 @@ $(document).ready(async function () {
         } catch (error) {
             console.error('Error while playing song:', error);
         }
-    };
+    };*/
     document.getElementById('searchForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
     });
@@ -95,9 +95,9 @@ $(document).ready(async function () {
                 const dataIndex = dataTable.row(this).index();
                 const fullData = finalFullData[dataIndex];
                 let audioPlayer = document.getElementById("audioPlayer");
-                //audioPlayer.src = fullData.media_url;
-                //audioPlayer.play();
-                playSong(audioPlayer, fullData.media_url);
+                audioPlayer.src = fullData.media_url;
+                audioPlayer.play();
+                //playSong(audioPlayer, fullData.media_url);
             }
         });
         searchBtn.innerHTML = "Search";
