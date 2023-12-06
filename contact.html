@@ -98,7 +98,7 @@
                 <label for="birthday">
                     <i class="far fa-calendar"></i>
                 </label>
-                <input type="date" id="birthday" placeholder="Enter your birthday (or not)" required />
+                <input type="date" id="date" placeholder="Enter your bug finded day" required />
                 <label for="category">
                     <i class="fas fa-list"></i>
                 </label>
@@ -108,12 +108,12 @@
                     <option>Other</option>
                 </select>
             </div>
-            <textarea placeholder="Tell us what's wrong" required></textarea>
+            <textarea placeholder="Tell us what's wrong" id="other" required></textarea>
             <div class="checkbox-group">
                 <input id="copy" type="checkbox" />
                 <label for="copy">Send me a copy.</label>
             </div>
-            <button type="submit">Send</button>
+            <button type="submit" id="send">Send</button>
         </form>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -121,7 +121,7 @@
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/sweetalert.js"></script>
     <script src="assets/js/contact.js"></script>
-    <script src="assets/js/security.js"></script>
+    <!-- <script src="assets/js/security.js"></script> -->
 </body>
 
 </html>
