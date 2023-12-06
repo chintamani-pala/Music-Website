@@ -8,11 +8,6 @@ function isValidEmail(email) {
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
-// Get the date input element
-var datePicker = document.getElementById("date");
-
-// Set the max attribute to today's date
-datePicker.setAttribute("max", getCurrentDate());
 
 
 function getCurrentDate() {
@@ -23,6 +18,12 @@ function getCurrentDate() {
 
     return yyyy + '-' + mm + '-' + dd;
 }
+
+// Get the date input element
+var datePicker = document.getElementById("date");
+
+// Set the max attribute to today's date
+datePicker.setAttribute("max", getCurrentDate());
 
 function sendData() {
     sendBtn.innerHTML = "Sending...";
