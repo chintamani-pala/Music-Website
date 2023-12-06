@@ -71,7 +71,7 @@ $(document).ready(async function () {
                 loadingIndicator: true
             }
         });
-        finalFullData=finalFullData.concat(musicData)
+        finalFullData=musicData
         $('#musicTable tbody').on('click', 'tr', function () {
             const rowData = dataTable.row(this).data();
             if (rowData) {
