@@ -21,13 +21,14 @@ function getCurrentDate() {
 
 contactForm.addEventListener("submit",(e)=>{
     e.preventDefault()
+    let sendBtn=document.getElementById("send")
+    sendBtn.innerHTML="Sending..."
+    sendBtn.disable=true;
     let userName=document.getElementById("name").value;
     let userEmail=document.getElementById("email").value
     let date=document.getElementById("date").value
     let contactReason=document.getElementById("category").value
     let description=document.getElementById("other").value
-    let sendBtn=document.getElementById("send")
-    sendBtn.innerHTML="Sending..."
     let sendMeACopy=false;
     if(document.getElementById("copy").checked){
         sendMeACopy =true;
@@ -58,6 +59,7 @@ contactForm.addEventListener("submit",(e)=>{
         }
         topRightSmallToast(`Response Send Successfully`,`success`)
         sendBtn.innerHTML="Send"
+        sendBtn.disable=false;
         return response.json();
     })
     .then(data => {
@@ -65,5 +67,6 @@ contactForm.addEventListener("submit",(e)=>{
     })
     .catch(error => {
         topRightSmallToast(`Something went wrong contact admin`,`error`)
+        sendBtn.disable=false;
     });
 })
