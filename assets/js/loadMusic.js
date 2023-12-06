@@ -97,7 +97,7 @@ $(document).ready(async function () {
     };
 
     $(window).on('scroll', function() {
-        if($(window).scrollTop() + $(window).innerHeight() >= $(document).height() - 150) { // Adjusted for mobile devices
+        if($(window).scrollTop() + $(window).innerHeight() >= $(document).height() - 250) { // Adjusted for mobile devices
             
             console.log("yes");
             fetchMoreData(inputFieldValue);
