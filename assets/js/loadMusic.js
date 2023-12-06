@@ -241,6 +241,8 @@ $(document).ready(async function () {
         const formattedData= await formatData(moreData)
         dataTable.rows.add(formattedData).draw();
         finalFullData = finalFullData.concat(moreData);
+        localStorage.setItem(query,finalFullData);
+
     };
 
     $(window).on('scroll', function() {
