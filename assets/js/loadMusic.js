@@ -168,6 +168,7 @@ $(document).ready(async function () {
             inputFieldValue = inputFieldValue.replace(" ", "+")
             inputFieldValue = inputFieldValue.toLowerCase()
             searchBtn.innerHTML = "Loading..."
+            finalFullData=[]
             await fetchAndDisplay(inputFieldValue)
             localStorage.setItem("lastSearch",inputFieldValue);
             searchBtn.innerHTML = "Search"
