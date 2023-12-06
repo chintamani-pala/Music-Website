@@ -1,14 +1,13 @@
-let contactForm=document.getElementById("contactForm")
+
+
+let contactForm = document.getElementById("contactForm");
+let sendBtn = document.getElementById("send");
+
 function isValidEmail(email) {
     // Regular expression pattern for basic email validation
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
-
-var datePicker = document.getElementById("date");
-
-// Set the max attribute to today's date
-datePicker.setAttribute("max", getCurrentDate());
 
 function getCurrentDate() {
     var today = new Date();
@@ -19,24 +18,22 @@ function getCurrentDate() {
     return yyyy + '-' + mm + '-' + dd;
 }
 
-contactForm.addEventListener("submit",(e)=>{
-    e.preventDefault()
-    let sendBtn=document.getElementById("send")
-    sendBtn.innerHTML="Sending..."
-    sendBtn.disable=true;
-    let userName=document.getElementById("name").value;
-    let userEmail=document.getElementById("email").value
-    let date=document.getElementById("date").value
-    let contactReason=document.getElementById("category").value
-    let description=document.getElementById("other").value
-    let sendMeACopy=false;
-    if(document.getElementById("copy").checked){
-        sendMeACopy =true;
-    }
-    if(!isValidEmail(userEmail)){
-        topRightSmallToast(`Enter a Valid Email`,`error`)
+function sendData() {
+    sendBtn.innerHTML = "Sending...";
+    sendBtn.disabled = true;
+
+    let userName = document.getElementById("name").value;
+    let userEmail = document.getElementById("email").value;
+    let date = document.getElementById("date").value;
+    let contactReason = document.getElementById("category").value;
+    let description = document.getElementById("other").value;
+    let sendMeACopy = document.getElementById("copy").checked;
+
+    if (!isValidEmail(userEmail)) {
+        topRightSmallToast(`Enter a Valid Email`, `error`);
         return;
     }
+
     const data = {
         userName: userName,
         userEmail: userEmail,
@@ -45,7 +42,7 @@ contactForm.addEventListener("submit",(e)=>{
         description: description,
         sendMeACopy: sendMeACopy
     };
-    
+
     fetch('https://contact-api-chintamanipala-chintamani-pala.vercel.app/send-email', {
         method: 'POST',
         headers: {
@@ -57,16 +54,31 @@ contactForm.addEventListener("submit",(e)=>{
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        topRightSmallToast(`Response Send Successfully`,`success`)
-        sendBtn.innerHTML="Send"
-        sendBtn.disable=false;
+        topRightSmallToast(`Response Sent Successfully`, `success`);
+        sendBtn.innerHTML = "Send";
+        sendBtn.disabled = false;
         return response.json();
     })
     .then(data => {
         console.log('Success:', data);
     })
     .catch(error => {
-        topRightSmallToast(`Something went wrong contact admin`,`error`)
-        sendBtn.disable=false;
+        topRightSmallToast(`Something went wrong, please contact admin`, `error`);
+        sendBtn.disabled = false;
     });
-})
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+    sendData();
+}
+
+function removeListener() {
+    contactForm.removeEventListener("submit", handleSubmit);
+}
+
+function addListener() {
+    contactForm.addEventListener("submit", handleSubmit);
+}
+
+addListener(); // Adding initial event listener
