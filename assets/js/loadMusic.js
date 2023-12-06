@@ -131,6 +131,7 @@ $(document).ready(async function () {
         if (query !== "Top+Songs") {
             localStorage.setItem(query, JSON.stringify(musicData));
         }
+        finalFullData=musicData
         await loadMusicToTable(musicData);
     }
 
