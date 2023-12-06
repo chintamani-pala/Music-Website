@@ -1,11 +1,11 @@
 function checkAndClearLocalStorage() {
     const siteVersion = localStorage.getItem('updatedVersion');
     const localStorageLength = localStorage.length;
-    const updateVersion = 7;
+    const updateVersion = 8;
     if(localStorageLength == 0){
         localStorage.setItem('updatedVersion', updateVersion);
     }
-    if (localStorageLength != 0 && (siteVersion === null || parseInt(siteVersion) != updateVersion)) {
+    if (localStorageLength != 0 && (siteVersion === null || parseInt(siteVersion) < updateVersion)) {
         Swal.fire({
             title: "Update",
             html: `Hey New Update is Released <strong>Do You Want To Update?</strong>`,
